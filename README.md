@@ -9,7 +9,8 @@ Supported web frameworks: Flask, Tornado and Sanic
 Note:
 I have used CSVKIT to import csv to postgresql DB
 Check db.sh file for this
-Setup.py is not currently configured we can use it to create commands to perform functions. Ex. $python setup.py init-db or
+Setup.py is not currently configured we can use it to create commands to perform functions. 
+Ex. $python setup.py init-db or
 $python setup.py fill-populate-data
 ```
 
