@@ -16,7 +16,7 @@ $python setup.py fill-populate-data
 
 ## Installation
 
-`pip install python-paginate`
+`pip install python-paginate` <br />
 `pip install csvkit`
 
 ## Usage
@@ -45,5 +45,5 @@ Open <http://localhost:8000> to see the Home page.
 ![Desktop](/ss/ss.jpg "Desktop")
 ![Mobile](/ss/ss-mobile.jpg "Mobile")
 
-If Any Error Arises Feel Free To Contact Me
+If Any Error Arises Feel Free To Contact Me <br />
 Hope its close to expected solution
