@@ -4,6 +4,7 @@
 import os.path
 from sanic import Sanic
 import psycopg2
+import time
 from sanic_jinja2 import SanicJinja2
 from python_paginate.css.semantic import Semantic
 from python_paginate.web.sanic_paginate import Pagination
@@ -47,13 +48,14 @@ async def index(request):
     page, per_page, offset = Pagination.get_page_args(request)
     sql = 'select date, season, home, visitor, ft, hgoal, vgoal, division, tier, totgoal, goaldif, result from data offset {} limit {}'\
         .format(offset, per_page)
+    starttime = time.time()
     cur.execute(sql)
     data = cur.fetchall()
     cur.close()
     conn.close()
+    exec_time = round((time.time() - starttime), 4)
     pagination = Pagination(request, total=total, record_name='data')
-    return jinja.render('index.html', request, data=data,
-                        pagination=pagination)
+    return jinja.render('index.html', request, data=data, exec_time=exec_time, pagination=pagination)
 
 
 if __name__ == '__main__':
