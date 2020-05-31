@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Data{% endblock %}
+
+{% block body %}
+  {% if data %}
+    {{ pagination.info }}
+    <div class="table-responsive">
+      <table class="ui selectable celled blue table unstackable">
+        <thead>
+          <tr>
+              <th>ID</th>
+              <th>Date</th>
+          <th>Season</th>
+          <th>Home</th>
+          <th>Visitor</th>
+          <th>FT</th>
+          <th>HGoal</th>
+          <th>VGoal</th>
+          <th>Division</th>
+          <th>TOTGoal</th>
+          <th>GoalDiff</th>
+          <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for d in data %}
+          <tr>
+            <td>{{ loop.index + pagination.skip }}</td>
+            <td>{{ d[0] }}</td>
+            <td>{{ d[1] }}</td>
+            <td>{{ d[2] }}</td>
+            <td>{{ d[3] }}</td>
+            <td>{{ d[4] }}</td>
+            <td>{{ d[5] }}</td>
+            <td>{{ d[6] }}</td>
+            <td>{{ d[7] }}</td>
+            <td>{{ d[8] }}</td>
+            <td>{{ d[9] }}</td>
+            <td>{{ d[10] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        {% if pagination.links %}
+          <tfoot>
+            <tr>
+              <th colspan="2">
+                <div class="ui right floated pagination menu">{{ pagination.links }}</div>
+              </th>
+            </tr>
+          </tfoot>
+        {% endif %}
+      </table>
+    </div>
+  {% endif %}
+{% endblock %}
